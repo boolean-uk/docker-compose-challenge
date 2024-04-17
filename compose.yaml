@@ -15,7 +15,20 @@ services:
       NODE_ENV: production
     ports:
       - 3000:3000
-
+    depends_on:
+      - db
+  db:
+    container_name: postgres-service
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=password123
+volumes:
+  db-data:
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
 # start the database before your application. The `db-data` volume persists the
