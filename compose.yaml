@@ -1,19 +1,19 @@
 version: '3.8'
 
 services:
-  api-express:
-    image: api-express-database
-    container_name: api-express
+  docker-challenge:
+    image: docker-compose-challenge
+    container_name: docker-compose-challenge
     ports:
       - "3000:3000"
     depends_on:
-      - postgres_database # Ensure the API container starts after the PostgreSQL container
-  postgres_database:
+      - postgres_compose_challenge # Ensure the API container starts after the PostgreSQL container
+  postgres_compose_challenge:
     image: postgres
-    container_name: postgres_database
+    container_name: postgres_compose_challenge
     environment:
-      POSTGRES_PASSWORD: docker_user
-      POSTGRES_USER: docker_user
+      POSTGRES_PASSWORD: supersecurepassword
+      POSTGRES_USER: postgres
     ports:
       - "5432:5432"
     volumes:
