@@ -13,7 +13,7 @@ services:
     container_name: postgres_compose_challenge
     environment:
       POSTGRES_PASSWORD: supersecurepassword
-      POSTGRES_USER: postgres
+      POSTGRES_USER: challenge_user
     ports:
       - "5432:5432"
     volumes:
