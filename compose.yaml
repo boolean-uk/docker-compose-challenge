@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  docker-challenge:
+  docker-challenge-api:
     image: docker-compose-challenge
     container_name: docker-compose-challenge
     ports:
