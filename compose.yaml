@@ -3,7 +3,7 @@ version: '3.8'
 services:
   docker-challenge-api:
     image: docker-compose-challenge
-    container_name: docker-compose-challenge
+    container_name: docker-compose-challenge-api
     ports:
       - "3000:3000"
     depends_on:
