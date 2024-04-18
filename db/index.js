@@ -10,8 +10,8 @@ const client = {
       port: process.env.PORT,
       database: process.env.DATABASE,
       user: process.env.USER,
-      password: process.env.PASSWORD
-    })
+      password: process.env.PASSWORD,
+    });
     // connect a connection
     await dbClient.connect()
     // execute the query
