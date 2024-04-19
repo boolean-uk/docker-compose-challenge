@@ -1,0 +1,18 @@
+services:
+  express-api:
+    image: books-api
+    container_name: docker_compose_challenge-api
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres_db
+  postgres_db:
+    image: postgres
+    container_name: docker_compose_challenge_db
+    environment:
+     - POSTGRES_PASSWORD=${PASSWORD}
+     - POSTGRES_USER=${USER}
+     - POSTGRES_DB=${DATABASE}
+    ports:
+      - ${PORT}:${PORT}
+    restart: unless-stopped
