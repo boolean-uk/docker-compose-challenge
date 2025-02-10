@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  docker-challenge-api:
+    image: docker-compose-challenge
+    container_name: docker-compose-challenge-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres_compose_challenge # Ensure the API container starts after the PostgreSQL container
+  postgres_compose_challenge:
+    image: postgres
+    container_name: postgres_compose_challenge
+    environment:
+      POSTGRES_USER: challenge_user
+      POSTGRES_PASSWORD: supersecurepassword
+    ports:
+      - "6000:5432"
+    volumes:
+      - /c/Docker/DB:/var/lib/postgresql/data
+    restart: unless-stopped
