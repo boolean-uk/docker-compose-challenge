@@ -1,7 +1,7 @@
 // Load our .env file
 require('dotenv').config()
 // Require Client obj from the postgres node module
-const { Client } = require("pg");
+const {Client} = require('pg')
 
 const client = {
   query: async (str, values) => {
@@ -10,7 +10,7 @@ const client = {
       port: process.env.PORT,
       database: process.env.DATABASE,
       user: process.env.USER,
-      password: process.env.PASSWORD
+      password: process.env.PASSWORD,
     })
     // connect a connection
     await dbClient.connect()
@@ -19,7 +19,7 @@ const client = {
     // close the connection
     await dbClient.end()
     return result
-  }
+  },
 }
 
-module.exports = client;
+module.exports = client
